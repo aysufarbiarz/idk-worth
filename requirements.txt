@@ -1,0 +1,5 @@
+pandas>=2.1
+numpy>=1.26
+statsmodels>=0.14
+datasets>=2.19
+pytest>=8

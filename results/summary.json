@@ -1,0 +1,152 @@
+{
+  "generated_utc": "2026-11-06T23:32:50+00:00",
+  "dataset": "lmarena-ai/arena-human-preference-55k",
+  "n_raw_battles": 57477,
+  "n_single_turn": 49938,
+  "response_classes": {
+    "answer": 95865,
+    "safety_refusal": 2135,
+    "abstain": 1813,
+    "empty": 63
+  },
+  "overall_tie_rate": 0.3132083783892026,
+  "idk_vs_answer": [
+    {
+      "subset": "all IDK-vs-answer battles",
+      "n_battles": 1402,
+      "idk_wins": 327,
+      "answer_wins": 618,
+      "ties": 457,
+      "p_idk_wins_decisive": 0.346031746031746,
+      "ci_low": 0.3163798810389109,
+      "ci_high": 0.37693036168231886,
+      "tie_rate": 0.325962910128388
+    },
+    {
+      "subset": "factual-looking prompts",
+      "n_battles": 645,
+      "idk_wins": 163,
+      "answer_wins": 265,
+      "ties": 217,
+      "p_idk_wins_decisive": 0.3808411214953271,
+      "ci_low": 0.3360887365998184,
+      "ci_high": 0.42771354645952564,
+      "tie_rate": 0.3364341085271318
+    },
+    {
+      "subset": "other prompts",
+      "n_battles": 757,
+      "idk_wins": 164,
+      "answer_wins": 353,
+      "ties": 240,
+      "p_idk_wins_decisive": 0.31721470019342357,
+      "ci_low": 0.2785712692362304,
+      "ci_high": 0.35855449030371417,
+      "tie_rate": 0.31704095112285335
+    },
+    {
+      "subset": "bare IDK (<= 60 words)",
+      "n_battles": 582,
+      "idk_wins": 108,
+      "answer_wins": 270,
+      "ties": 204,
+      "p_idk_wins_decisive": 0.2857142857142857,
+      "ci_low": 0.24250656490463912,
+      "ci_high": 0.33323374207081874,
+      "tie_rate": 0.35051546391752575
+    },
+    {
+      "subset": "IDK plus help (> 60 words)",
+      "n_battles": 820,
+      "idk_wins": 219,
+      "answer_wins": 348,
+      "ties": 253,
+      "p_idk_wins_decisive": 0.3862433862433862,
+      "ci_low": 0.34705986855596416,
+      "ci_high": 0.4269580026012886,
+      "tie_rate": 0.30853658536585366
+    }
+  ],
+  "bradley_terry_all": {
+    "n_battles": 33073,
+    "n_models": 64,
+    "reference_model": "gpt-4-1106-preview",
+    "idk_diff": {
+      "coef": -0.6135838362377237,
+      "ci_low": -0.7665441073865126,
+      "ci_high": -0.46062356508893487,
+      "odds_ratio": 0.5414070737426758,
+      "or_ci_low": 0.4646159598691973,
+      "or_ci_high": 0.6308901217709553,
+      "p_value": 3.774846088305499e-15
+    },
+    "hedge_diff": {
+      "coef": -0.04711435200335962,
+      "ci_low": -0.07469230143175276,
+      "ci_high": -0.01953640257496649,
+      "odds_ratio": 0.9539783020228437,
+      "or_ci_low": 0.9280289955941404,
+      "or_ci_high": 0.9806531962374111,
+      "p_value": 0.0008127506361234797
+    },
+    "loglen_diff": {
+      "coef": 0.374490031172817,
+      "ci_low": 0.34618468641023126,
+      "ci_high": 0.4027953759354027,
+      "odds_ratio": 1.454249603519272,
+      "or_ci_low": 1.4136636761794124,
+      "or_ci_high": 1.4960007425893276,
+      "p_value": 2.97579564241772e-148
+    },
+    "const": {
+      "coef": 0.028142910255912035,
+      "ci_low": 0.004496756622450356,
+      "ci_high": 0.05178906388937371,
+      "odds_ratio": 1.028542663214003,
+      "or_ci_low": 1.0045068822042476,
+      "or_ci_high": 1.0531535709640358,
+      "p_value": 0.01966454491399051
+    }
+  },
+  "bradley_terry_factual": {
+    "n_battles": 7844,
+    "n_models": 62,
+    "reference_model": "gpt-4-1106-preview",
+    "idk_diff": {
+      "coef": -0.4931735564691049,
+      "ci_low": -0.7225037544373163,
+      "ci_high": -0.26384335850089347,
+      "odds_ratio": 0.6106852714884138,
+      "or_ci_low": 0.48553507223966386,
+      "or_ci_high": 0.7680938456054383,
+      "p_value": 2.4989585362628013e-05
+    },
+    "hedge_diff": {
+      "coef": -0.07556995100652775,
+      "ci_low": -0.12744166903487664,
+      "ci_high": -0.023698232978178843,
+      "odds_ratio": 0.9272148686521187,
+      "or_ci_low": 0.8803447656963874,
+      "or_ci_high": 0.9765803650453778,
+      "p_value": 0.004298297306362499
+    },
+    "loglen_diff": {
+      "coef": 0.4083186429557599,
+      "ci_low": 0.34697589728826705,
+      "ci_high": 0.4696613886232528,
+      "odds_ratio": 1.5042864150802262,
+      "or_ci_low": 1.414782624861701,
+      "or_ci_high": 1.5994525086962539,
+      "p_value": 6.679539663080223e-39
+    },
+    "const": {
+      "coef": 0.012870556687617803,
+      "ci_low": -0.0362256212149985,
+      "ci_high": 0.0619667345902341,
+      "odds_ratio": 1.0129537387858953,
+      "or_ci_low": 0.964422674718699,
+      "or_ci_high": 1.0639269521733379,
+      "p_value": 0.6073888177436837
+    }
+  }
+}

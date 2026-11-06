@@ -1,25 +1,25 @@
 # Part 1 results: Chatbot Arena reanalysis (rule-based first pass)
 
-_Generated 2026-11-06T23:32:50+00:00 from `lmarena-ai/arena-human-preference-55k`._
+_Generated 2026-11-06T23:34:15+00:00 from `lmarena-ai/arena-human-preference-55k`._
 
 - Battles: 57,477 total, 49,938 single-turn.
-- Responses classified: abstain 1,813, answer 95,865, empty 63, safety_refusal 2,135
+- Responses classified: abstain 1,514, answer 95,347, clarify 817, empty 63, safety_refusal 2,135
 - Tie rate across all single-turn battles: 31.3%
 
 ## When one model says "I don't know" and the other answers
 
 | Subset | Battles | IDK wins | Answer wins | Ties | P(IDK wins), decisive | 95% CI | Tie rate |
 |---|---|---|---|---|---|---|---|
-| all IDK-vs-answer battles | 1,402 | 327 | 618 | 457 | 34.6% | 31.6% to 37.7% | 32.6% |
-| factual-looking prompts | 645 | 163 | 265 | 217 | 38.1% | 33.6% to 42.8% | 33.6% |
-| other prompts | 757 | 164 | 353 | 240 | 31.7% | 27.9% to 35.9% | 31.7% |
-| bare IDK (<= 60 words) | 582 | 108 | 270 | 204 | 28.6% | 24.3% to 33.3% | 35.1% |
-| IDK plus help (> 60 words) | 820 | 219 | 348 | 253 | 38.6% | 34.7% to 42.7% | 30.9% |
+| all IDK-vs-answer battles | 1,145 | 276 | 501 | 368 | 35.5% | 32.2% to 39.0% | 32.1% |
+| factual-looking prompts | 541 | 135 | 229 | 177 | 37.1% | 32.3% to 42.2% | 32.7% |
+| other prompts | 604 | 141 | 272 | 191 | 34.1% | 29.7% to 38.8% | 31.6% |
+| bare IDK (<= 60 words) | 377 | 76 | 169 | 132 | 31.0% | 25.6% to 37.1% | 35.0% |
+| IDK plus help (> 60 words) | 768 | 200 | 332 | 236 | 37.6% | 33.6% to 41.8% | 30.7% |
 
 ## Controlling for model strength, length and hedging (Bradley-Terry logit)
 
-- **All prompts** (33,073 decisive battles, 64 models): abstaining multiplies the odds of winning by 0.54 (95% CI 0.46 to 0.63); each extra hedge per 100 words: OR 0.95 (0.93 to 0.98).
-- **Factual-looking prompts** (7,844 decisive battles, 62 models): abstaining multiplies the odds of winning by 0.61 (95% CI 0.49 to 0.77); each extra hedge per 100 words: OR 0.93 (0.88 to 0.98).
+- **All prompts** (32,597 decisive battles, 64 models): abstaining multiplies the odds of winning by 0.52 (95% CI 0.44 to 0.61); each extra hedge per 100 words: OR 0.95 (0.93 to 0.98).
+- **Factual-looking prompts** (7,692 decisive battles, 62 models): abstaining multiplies the odds of winning by 0.53 (95% CI 0.42 to 0.68); each extra hedge per 100 words: OR 0.92 (0.87 to 0.97).
 
 ## Caveats
 

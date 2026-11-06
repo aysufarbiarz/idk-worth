@@ -41,6 +41,14 @@ _SAFETY = [
     r"(?:help|assist|fulfill|comply|create|generate|write|engage)\b",
 ]
 
+# --- Clarification requests (the model didn't understand the prompt; excluded) ---
+_CLARIFY = [
+    r"\bnot sure (?:what|I understand|if I understand|I follow)\b",
+    r"\b(?:don'?t|do not) understand\b",
+    r"\b(?:provide|give|share) (?:me )?(?:more|some|additional) (?:context|details|information)\b",
+    r"\bcould you (?:please )?(?:clarify|explain|elaborate|rephrase)\b",
+]
+
 # --- Hedge markers (density per 100 words) -----------------------------------
 # Case-sensitive "may"/"might" avoid the month name and proper nouns.
 _HEDGES = [
@@ -53,6 +61,7 @@ _HEDGES = [
 
 ABSTAIN_RE = re.compile("|".join(_ABSTAIN), re.IGNORECASE)
 SAFETY_RE = re.compile("|".join(_SAFETY), re.IGNORECASE)
+CLARIFY_RE = re.compile("|".join(_CLARIFY), re.IGNORECASE)
 HEDGE_RE = re.compile("|".join(_HEDGES))  # case-sensitive on purpose
 
 # An abstention only counts if it appears early: the response *leads* with it,
@@ -81,7 +90,7 @@ def hedge_density(text: str) -> float:
 
 
 def classify(text: str) -> str:
-    """Return 'safety_refusal', 'abstain' or 'answer'.
+    """Return 'safety_refusal', 'clarify', 'abstain' or 'answer'.
 
     Safety refusals win ties: a response that says "I can't help with that,
     it's harmful" is a policy refusal, not an admission of ignorance.
@@ -90,6 +99,8 @@ def classify(text: str) -> str:
         return "empty"
     if is_safety_refusal(text):
         return "safety_refusal"
+    if CLARIFY_RE.search(text[:LEAD_CHARS]):
+        return "clarify"
     if leads_with_abstention(text):
         return "abstain"
     return "answer"

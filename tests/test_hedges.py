@@ -41,3 +41,11 @@ def test_hedge_density():
     assert hedge_density("It is Canberra.") == 0
     assert hedge_density("") == 0
     assert hedge_density("Born in May 1990.") == 0  # month name is not a hedge
+
+
+def test_clarification_requests():
+    for t in [
+        "I'm sorry, I'm not sure what you are referring to. Could you provide more context?",
+        "Sorry, but I'm not sure I understand what you are saying. Could you explain?",
+    ]:
+        assert classify(t) == "clarify", t
